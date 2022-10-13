@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"github.com/opentracing/opentracing-go"
-	"github.com/pkg/errors"
 	"github.com/sefikcan/kanbersky.ca/internal/currency/mapping"
 	"github.com/sefikcan/kanbersky.ca/internal/currency/repository"
 	request "github.com/sefikcan/kanbersky.ca/internal/dto/request/currency"
@@ -12,7 +11,6 @@ import (
 	"github.com/sefikcan/kanbersky.ca/pkg/config"
 	"github.com/sefikcan/kanbersky.ca/pkg/logger"
 	"github.com/sefikcan/kanbersky.ca/pkg/util"
-	"net/http"
 )
 
 type CurrencyUseCase interface {
@@ -34,9 +32,9 @@ func (c currencyUseCase) Create(ctx context.Context, request *request.CurrencyCr
 	span, spanContext := opentracing.StartSpanFromContext(ctx, "currencyUseCase.Create")
 	defer span.Finish()
 
-	if err := util.ValidateStruct(spanContext, request); err != nil {
+	/*if err := util.ValidateStruct(spanContext, request); err != nil {
 		return nil, util.NewHttpResponse(http.StatusBadRequest, util.BadRequest.Error() , errors.WithMessage(err,"currencyUseCase.Create.ValidateStruct"))
-	}
+	}*/
 
 	currency := mapping.CreateMapEntity(request)
 
@@ -58,9 +56,9 @@ func (c currencyUseCase) Update(ctx context.Context, request *request.CurrencyUp
 	span, spanContext := opentracing.StartSpanFromContext(ctx, "currencyUseCase.Update")
 	defer span.Finish()
 
-	if err := util.ValidateStruct(spanContext, request); err != nil {
+	/*if err := util.ValidateStruct(spanContext, request); err != nil {
 		return nil, util.NewHttpResponse(http.StatusBadRequest, util.BadRequest.Error() , errors.WithMessage(err,"currencyUseCase.Create.ValidateStruct"))
-	}
+	}*/
 
 	_, err := c.currencyRepository.GetById(spanContext, request.ID)
 	if err != nil {
