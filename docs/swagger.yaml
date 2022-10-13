@@ -1,0 +1,140 @@
+basePath: /api/v1
+definitions:
+  currency.CurrencyListResponse:
+    properties:
+      currencies:
+        items:
+          $ref: '#/definitions/currency.CurrencyResponse'
+        type: array
+      limit:
+        type: integer
+      page:
+        type: integer
+      total_count:
+        type: integer
+      total_pages:
+        type: integer
+    type: object
+  currency.CurrencyResponse:
+    properties:
+      id:
+        type: integer
+      iso_code:
+        type: string
+      title:
+        type: string
+    type: object
+info:
+  contact:
+    name: Sefik Can Kanber
+    url: https://github.com/sefikcan
+  description: Go Clean Arch
+  title: Go Clean Arch
+  version: "1.0"
+paths:
+  /currencies:
+    post:
+      consumes:
+      - application/json
+      description: Create currency handler
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/currency.CurrencyResponse'
+      summary: Create currency
+      tags:
+      - Currency
+  /currencies/:
+    get:
+      consumes:
+      - application/json
+      description: Get all currencies with pagination
+      parameters:
+      - description: page number
+        format: page
+        in: query
+        name: page
+        type: integer
+      - description: number of elements per page
+        format: size
+        in: query
+        name: size
+        type: integer
+      - description: filter name
+        format: orderBy
+        in: query
+        name: orderBy
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/currency.CurrencyListResponse'
+      summary: Get all currencies
+      tags:
+      - Currencies
+  /currencies/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete by id currency handler
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      summary: Delete currency
+      tags:
+      - Currency
+    get:
+      consumes:
+      - application/json
+      description: Get by id currency handler
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/currency.CurrencyResponse'
+      summary: Get by id currency
+      tags:
+      - Currencies
+    put:
+      consumes:
+      - application/json
+      description: Update currency handler
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/currency.CurrencyResponse'
+      summary: Update currencies
+      tags:
+      - Currency
+swagger: "2.0"

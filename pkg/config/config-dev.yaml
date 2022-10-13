@@ -1,0 +1,42 @@
+server:
+  appversion: "1.0.0"
+  host: "localhost"
+  port: "5000"
+  mode: "Dev"
+  readtimeout: 5
+  writetimeout: 5
+  maxheaderbytes: 10
+  ctxtimeout: 4
+
+logger:
+  development: true
+  encoding: console
+  level: info
+
+postgres:
+  host: localhost
+  port: 5432
+  username: pg
+  password: admin
+  dbname: currency_db
+  sslmode: false
+  driver: pgx
+  maxopenconns: 60
+  connmaxlifetime: 120
+  maxIdleconns: 30
+  connmaxidletime: 20
+
+jaeger:
+  host: localhost:6831
+  servicename: REST_API
+  logspans: false
+
+mongo:
+  url: uristring
+
+metric:
+  url: localhost:7070
+  servicename: api
+
+redis:
+  url: localhost:6379

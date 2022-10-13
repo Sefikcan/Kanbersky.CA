@@ -1,0 +1,37 @@
+ServerConfig:
+  AppVersion: 1.0.0
+  Port: 5000
+  Mode: Dev
+  ReadTimeout: 5
+  WriteTimeout: 5
+  MaxHeaderBytes: 10
+  CtxTimeout: 4
+
+LogConfig:
+  Development: true
+  Encoding: json
+  Level: info
+
+PostgreConfig:
+  Host: localhost
+  Port: 5432
+  UserName: pg
+  Password: admin
+  DbName: auth_db
+  SslMode: false
+  Driver: pgx
+
+JaegerConfig:
+  Host: localhost:6831
+  ServiceName: REST_API
+  LogSpans: false
+
+MongoConfig:
+  Url: uristring
+
+MetricConfig:
+  Url: localhost:7070
+  ServiceName: api
+
+RedisConfig:
+  Url: localhost:6379
