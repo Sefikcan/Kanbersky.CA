@@ -1,7 +1,6 @@
 package util
 
 import (
-	"context"
 	"github.com/go-playground/validator/v10"
 )
 
@@ -11,6 +10,6 @@ func Init()  {
 	validate = validator.New()
 }
 
-func ValidateStruct(ctx context.Context, s interface{}) error {
-	return validate.StructCtx(ctx, s)
+func ValidateStruct(s interface{}) error {
+	return validate.Struct(s)
 }
