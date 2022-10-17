@@ -77,7 +77,7 @@ func (c currencyHandlers) Update() echo.HandlerFunc {
 		}
 
 		currency := currency.CurrencyUpdateRequest{}
-		if err = e.Bind(currency); err != nil {
+		if err = e.Bind(&currency); err != nil {
 			util.PrepareLogging(e, c.logger, err)
 			return e.JSON(http.StatusBadRequest, util.NewHttpResponse(http.StatusBadRequest, strings.ToLower(err.Error()),nil))
 		}

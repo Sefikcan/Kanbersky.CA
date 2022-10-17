@@ -62,14 +62,20 @@ func (c currencyUseCase) Update(ctx context.Context, request request.CurrencyUpd
 		return nil, util.NewHttpResponse(http.StatusBadRequest, util.BadRequest.Error() , errors.WithMessage(err,"currencyUseCase.Create.ValidateStruct"))
 	}
 
-	_, err := c.currencyRepository.GetById(spanContext, request.ID)
+	currentCurrency, err := c.currencyRepository.GetById(spanContext, request.ID)
 	if err != nil {
 		return nil, err
 	}
 
-	currency := mapping.UpdateMapEntity(&request)
+	if request.Title != "" {
+		currentCurrency.Title = request.Title
+	}
 
-	updatedCurrency, err := c.currencyRepository.Update(spanContext, currency)
+	if request.IsoCode != "" {
+		currentCurrency.IsoCode = request.IsoCode
+	}
+
+	updatedCurrency, err := c.currencyRepository.Update(spanContext, currentCurrency)
 	if err != nil {
 		return nil, err
 	}

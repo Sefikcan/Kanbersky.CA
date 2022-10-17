@@ -15,6 +15,7 @@ require (
 	github.com/uber/jaeger-client-go v2.30.0+incompatible
 	github.com/uber/jaeger-lib v2.4.1+incompatible
 	go.uber.org/zap v1.23.0
+	google.golang.org/genproto v0.0.0-20220519153652-3a47de7e79bd
 	gorm.io/driver/postgres v1.3.10
 	gorm.io/gorm v1.23.10
 )

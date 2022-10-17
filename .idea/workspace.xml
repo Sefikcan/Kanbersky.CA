@@ -6,11 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="80ab2d73-50ff-41e3-b28f-7810c09764a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/currency/entity/currency.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/currency/entity/currency.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/currency/handlers/currency.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/currency/handlers/currency.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/currency/usecase/currency.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/currency/usecase/currency.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/dto/request/currency/CurrencyCreateRequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dto/request/currency/CurrencyCreateRequest.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/config/config-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/config/config-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/util/validator.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/validator.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,6 +135,26 @@
           <url>file://$PROJECT_DIR$/internal/currency/usecase/currency.go</url>
           <line>44</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/currency/repository/currency.go</url>
+          <line>39</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/currency/usecase/currency.go</url>
+          <line>77</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/currency/usecase/currency.go</url>
+          <line>65</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/currency/repository/currency.go</url>
+          <line>52</line>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,6 +1,8 @@
 package entity
 
-import "time"
+import (
+	"time"
+)
 
 type Currency struct {
 	ID int `gorm:"primary_key" json:"id"`
