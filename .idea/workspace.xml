@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="80ab2d73-50ff-41e3-b28f-7810c09764a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/server/dependency.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/server/dependency.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/logger/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logger/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployments/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/deployments/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,16 +131,6 @@
           <url>file://$PROJECT_DIR$/internal/currency/usecase/currency.go</url>
           <line>44</line>
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/internal/middleware/request_logger.go</url>
-          <line>22</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/internal/server/dependency.go</url>
-          <line>23</line>
-          <option name="timeStamp" value="44" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
