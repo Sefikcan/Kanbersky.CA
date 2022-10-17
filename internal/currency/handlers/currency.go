@@ -33,6 +33,7 @@ type currencyHandlers struct {
 // @Tags Currency
 // @Accept json
 // @Produce json
+// @Param currencyCreateRequest body currency.CurrencyCreateRequest true "Create Currency"
 // @Success 201 {object} currency.CurrencyResponse
 // @Router /currencies [post]
 func (c currencyHandlers) Create() echo.HandlerFunc {
@@ -63,6 +64,7 @@ func (c currencyHandlers) Create() echo.HandlerFunc {
 // @Accept json
 // @Produce json
 // @Param id path int true "id"
+// @Param currencyUpdateRequest body currency.CurrencyUpdateRequest true "Update Currency"
 // @Success 200 {object} currency.CurrencyResponse
 // @Router /currencies/{id} [put]
 func (c currencyHandlers) Update() echo.HandlerFunc {

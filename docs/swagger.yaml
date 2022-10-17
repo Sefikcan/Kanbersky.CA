@@ -1,5 +1,18 @@
 basePath: /api/v1
 definitions:
+  currency.CurrencyCreateRequest:
+    properties:
+      iso_code:
+        minLength: 3
+        type: string
+      title:
+        maxLength: 12
+        minLength: 3
+        type: string
+    required:
+    - iso_code
+    - title
+    type: object
   currency.CurrencyListResponse:
     properties:
       currencies:
@@ -16,6 +29,15 @@ definitions:
         type: integer
     type: object
   currency.CurrencyResponse:
+    properties:
+      id:
+        type: integer
+      iso_code:
+        type: string
+      title:
+        type: string
+    type: object
+  currency.CurrencyUpdateRequest:
     properties:
       id:
         type: integer
@@ -68,6 +90,13 @@ paths:
       consumes:
       - application/json
       description: Create currency handler
+      parameters:
+      - description: Create Currency
+        in: body
+        name: currencyCreateRequest
+        required: true
+        schema:
+          $ref: '#/definitions/currency.CurrencyCreateRequest'
       produces:
       - application/json
       responses:
@@ -127,6 +156,12 @@ paths:
         name: id
         required: true
         type: integer
+      - description: Update Currency
+        in: body
+        name: currencyUpdateRequest
+        required: true
+        schema:
+          $ref: '#/definitions/currency.CurrencyUpdateRequest'
       produces:
       - application/json
       responses:

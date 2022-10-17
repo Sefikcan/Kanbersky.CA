@@ -76,6 +76,17 @@ const docTemplate = `{
                     "Currency"
                 ],
                 "summary": "Create currency",
+                "parameters": [
+                    {
+                        "description": "Create Currency",
+                        "name": "currencyCreateRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/currency.CurrencyCreateRequest"
+                        }
+                    }
+                ],
                 "responses": {
                     "201": {
                         "description": "Created",
@@ -136,6 +147,15 @@ const docTemplate = `{
                         "name": "id",
                         "in": "path",
                         "required": true
+                    },
+                    {
+                        "description": "Update Currency",
+                        "name": "currencyUpdateRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/currency.CurrencyUpdateRequest"
+                        }
                     }
                 ],
                 "responses": {
@@ -177,6 +197,24 @@ const docTemplate = `{
         }
     },
     "definitions": {
+        "currency.CurrencyCreateRequest": {
+            "type": "object",
+            "required": [
+                "iso_code",
+                "title"
+            ],
+            "properties": {
+                "iso_code": {
+                    "type": "string",
+                    "minLength": 3
+                },
+                "title": {
+                    "type": "string",
+                    "maxLength": 12,
+                    "minLength": 3
+                }
+            }
+        },
         "currency.CurrencyListResponse": {
             "type": "object",
             "properties": {
@@ -201,6 +239,20 @@ const docTemplate = `{
             }
         },
         "currency.CurrencyResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "iso_code": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "currency.CurrencyUpdateRequest": {
             "type": "object",
             "properties": {
                 "id": {
