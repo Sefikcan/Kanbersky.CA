@@ -74,7 +74,7 @@ func (l *logger) InitLogger() {
 
 	encoderCfg.EncodeTime = zapcore.ISO8601TimeEncoder
 	core := zapcore.NewCore(encoder, logWriter, zap.NewAtomicLevelAt(logLevel))
-	logger := zap.New(core, zap.AddCaller(), zap.AddCallerSkip(1))
+	logger := zap.New(core, zap.AddCaller(), zap.AddCallerSkip(1), zap.AddStacktrace(zapcore.ErrorLevel))
 
 	l.sugarLogger = logger.Sugar()
 	if err := l.sugarLogger.Sync(); err != nil {
@@ -107,27 +107,27 @@ func (l logger) Fatal(args ...interface{}) {
 }
 
 func (l logger) Debugf(template string, args ...interface{}) {
-	l.sugarLogger.Debugf(template, args)
+	l.sugarLogger.Debugf(template, args...)
 }
 
 func (l logger) Infof(template string, args ...interface{}) {
-	l.sugarLogger.Infof(template, args)
+	l.sugarLogger.Infof(template, args...)
 }
 
 func (l logger) Warnf(template string, args ...interface{}) {
-	l.sugarLogger.Warnf(template, args)
+	l.sugarLogger.Warnf(template, args...)
 }
 
 func (l logger) Errorf(template string, args ...interface{}) {
-	l.sugarLogger.Errorf(template, args)
+	l.sugarLogger.Errorf(template, args...)
 }
 
 func (l logger) DPanicf(template string, args ...interface{}) {
-	l.sugarLogger.DPanicf(template, args)
+	l.sugarLogger.DPanicf(template, args...)
 }
 
 func (l logger) Fatalf(template string, args ...interface{}) {
-	l.sugarLogger.Fatalf(template, args)
+	l.sugarLogger.Fatalf(template, args...)
 }
 
 func NewLogger(cfg *config.Config) Logger {

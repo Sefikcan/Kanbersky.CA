@@ -19,7 +19,7 @@ func (s *Server) MapHandlers(e *echo.Echo) error {
 	if err != nil {
 		s.logger.Errorf("CreateMetrics error: %s", err)
 	}
-	s.logger.Info("Metrics available URL: %s, ServiceName: %s", s.cfg.Metric.Url, s.cfg.Metric.ServiceName)
+	s.logger.Infof("Metrics available URL: %s, ServiceName: %s", s.cfg.Metric.Url, s.cfg.Metric.ServiceName)
 
 	currencyRepository := repository.NewCurrencyRepository(s.db)
 	currencyRedisRepository := repository.NewCurrencyRedisRepository(s.redisClient)
