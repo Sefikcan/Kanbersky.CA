@@ -20,6 +20,7 @@ import (
 // @contact.name Sefik Can Kanber
 // @contact.url https://github.com/sefikcan
 // @BasePath /api/v1
+// @host localhost:5000
 func main()  {
 	log.Println("Starting api server")
 

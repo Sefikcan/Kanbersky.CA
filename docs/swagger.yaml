@@ -24,6 +24,7 @@ definitions:
       title:
         type: string
     type: object
+host: localhost:5000
 info:
   contact:
     name: Sefik Can Kanber
@@ -33,21 +34,6 @@ info:
   version: "1.0"
 paths:
   /currencies:
-    post:
-      consumes:
-      - application/json
-      description: Create currency handler
-      produces:
-      - application/json
-      responses:
-        "201":
-          description: Created
-          schema:
-            $ref: '#/definitions/currency.CurrencyResponse'
-      summary: Create currency
-      tags:
-      - Currency
-  /currencies/:
     get:
       consumes:
       - application/json
@@ -78,6 +64,20 @@ paths:
       summary: Get all currencies
       tags:
       - Currencies
+    post:
+      consumes:
+      - application/json
+      description: Create currency handler
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/currency.CurrencyResponse'
+      summary: Create currency
+      tags:
+      - Currency
   /currencies/{id}:
     delete:
       consumes:

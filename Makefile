@@ -21,6 +21,7 @@ migrate_down:
 swaggo:
 	echo "Starting swagger generating"
 	swag init -g ./cmd/server/main.go -o ./docs
+	swag init -g ./internal/currency/handlers/currency.go -o ./docs
 
 # ===================================================================
 # Main

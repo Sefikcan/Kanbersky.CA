@@ -3,12 +3,14 @@ package server
 import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	_ "github.com/sefikcan/kanbersky.ca/docs"
 	"github.com/sefikcan/kanbersky.ca/internal/currency/handlers"
 	"github.com/sefikcan/kanbersky.ca/internal/currency/repository"
 	"github.com/sefikcan/kanbersky.ca/internal/currency/usecase"
 	mw "github.com/sefikcan/kanbersky.ca/internal/middleware"
 	"github.com/sefikcan/kanbersky.ca/pkg/metric"
 	"github.com/sefikcan/kanbersky.ca/pkg/util"
+	echoSwagger "github.com/swaggo/echo-swagger"
 	"net/http"
 )
 
@@ -42,6 +44,7 @@ func (s *Server) MapHandlers(e *echo.Echo) error {
 	e.Use(middlewareManager.MetricsMiddleware(metrics))
 	e.Use(middleware.Secure())
 	e.Use(middleware.BodyLimit("2M"))
+	e.GET("/swagger/*", echoSwagger.WrapHandler)
 
 	v1 := e.Group("/api/v1")
 	health := v1.Group("/health")

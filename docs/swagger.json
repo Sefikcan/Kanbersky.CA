@@ -9,32 +9,10 @@
         },
         "version": "1.0"
     },
+    "host": "localhost:5000",
     "basePath": "/api/v1",
     "paths": {
         "/currencies": {
-            "post": {
-                "description": "Create currency handler",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Currency"
-                ],
-                "summary": "Create currency",
-                "responses": {
-                    "201": {
-                        "description": "Created",
-                        "schema": {
-                            "$ref": "#/definitions/currency.CurrencyResponse"
-                        }
-                    }
-                }
-            }
-        },
-        "/currencies/": {
             "get": {
                 "description": "Get all currencies with pagination",
                 "consumes": [
@@ -75,6 +53,27 @@
                         "description": "OK",
                         "schema": {
                             "$ref": "#/definitions/currency.CurrencyListResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create currency handler",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Currency"
+                ],
+                "summary": "Create currency",
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/currency.CurrencyResponse"
                         }
                     }
                 }

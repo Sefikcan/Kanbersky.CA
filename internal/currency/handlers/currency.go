@@ -162,7 +162,7 @@ func (c currencyHandlers) Delete() echo.HandlerFunc {
 // @Param size query int false "number of elements per page" Format(size)
 // @Param orderBy query int false "filter name" Format(orderBy)
 // @Success 200 {object} currency.CurrencyListResponse
-// @Router /currencies/ [get]
+// @Router /currencies [get]
 func (c currencyHandlers) GetAll() echo.HandlerFunc {
 	return func(e echo.Context) error {
 		span, ctx := opentracing.StartSpanFromContext(util.GetRequestCtx(e), "currencyHandler.GetAll")
