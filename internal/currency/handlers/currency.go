@@ -40,8 +40,8 @@ func (c currencyHandlers) Create() echo.HandlerFunc {
 		span, ctx := opentracing.StartSpanFromContext(util.GetRequestCtx(e), "currencyHandler.Create")
 		defer span.Finish()
 
-		currencyRequest := &currency.CurrencyCreateRequest{}
-		if err := e.Bind(currencyRequest); err != nil {
+		currencyRequest := currency.CurrencyCreateRequest{}
+		if err := e.Bind(&currencyRequest); err != nil {
 			util.PrepareLogging(e, c.logger, err)
 			return e.JSON(http.StatusBadRequest, util.NewHttpResponse(http.StatusBadRequest, strings.ToLower(err.Error()),nil))
 		}
@@ -76,7 +76,7 @@ func (c currencyHandlers) Update() echo.HandlerFunc {
 			return e.JSON(http.StatusBadRequest, util.NewHttpResponse(http.StatusBadRequest, strings.ToLower(err.Error()),nil))
 		}
 
-		currency := &currency.CurrencyUpdateRequest{}
+		currency := currency.CurrencyUpdateRequest{}
 		if err = e.Bind(currency); err != nil {
 			util.PrepareLogging(e, c.logger, err)
 			return e.JSON(http.StatusBadRequest, util.NewHttpResponse(http.StatusBadRequest, strings.ToLower(err.Error()),nil))

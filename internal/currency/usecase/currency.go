@@ -16,8 +16,8 @@ import (
 )
 
 type CurrencyUseCase interface {
-	Create(ctx context.Context, request *request.CurrencyCreateRequest) (*response.CurrencyResponse, error)
-	Update(ctx context.Context, request *request.CurrencyUpdateRequest) (*response.CurrencyResponse, error)
+	Create(ctx context.Context, request request.CurrencyCreateRequest) (*response.CurrencyResponse, error)
+	Update(ctx context.Context, request request.CurrencyUpdateRequest) (*response.CurrencyResponse, error)
 	GetById(ctx context.Context, id int) (*response.CurrencyResponse, error)
 	Delete(ctx context.Context, id int) error
 	GetAll(ctx context.Context, request *request.CurrencyPageableRequest) (response.CurrencyListResponse, error)
@@ -30,7 +30,7 @@ type currencyUseCase struct {
 	logger logger.Logger
 }
 
-func (c currencyUseCase) Create(ctx context.Context, request *request.CurrencyCreateRequest) (*response.CurrencyResponse, error) {
+func (c currencyUseCase) Create(ctx context.Context, request request.CurrencyCreateRequest) (*response.CurrencyResponse, error) {
 	span, spanContext := opentracing.StartSpanFromContext(ctx, "currencyUseCase.Create")
 	defer span.Finish()
 
@@ -38,7 +38,7 @@ func (c currencyUseCase) Create(ctx context.Context, request *request.CurrencyCr
 		return nil, util.NewHttpResponse(http.StatusBadRequest, util.BadRequest.Error() , errors.WithMessage(err,"currencyUseCase.Create.ValidateStruct"))
 	}
 
-	currency := mapping.CreateMapEntity(request)
+	currency := mapping.CreateMapEntity(&request)
 
 	resp, err := c.currencyRepository.Create(spanContext, currency)
 	if err != nil {
@@ -54,7 +54,7 @@ func (c currencyUseCase) Create(ctx context.Context, request *request.CurrencyCr
 	return mappedResponse, nil
 }
 
-func (c currencyUseCase) Update(ctx context.Context, request *request.CurrencyUpdateRequest) (*response.CurrencyResponse, error) {
+func (c currencyUseCase) Update(ctx context.Context, request request.CurrencyUpdateRequest) (*response.CurrencyResponse, error) {
 	span, spanContext := opentracing.StartSpanFromContext(ctx, "currencyUseCase.Update")
 	defer span.Finish()
 
@@ -67,7 +67,7 @@ func (c currencyUseCase) Update(ctx context.Context, request *request.CurrencyUp
 		return nil, err
 	}
 
-	currency := mapping.UpdateMapEntity(request)
+	currency := mapping.UpdateMapEntity(&request)
 
 	updatedCurrency, err := c.currencyRepository.Update(spanContext, currency)
 	if err != nil {

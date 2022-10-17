@@ -10,7 +10,7 @@ server:
 
 logger:
   development: true
-  encoding: console
+  encoding: json
   level: info
 
 postgres:
